@@ -1,5 +1,11 @@
 USE clientes_y_pedidos;
 
+/*Cuando tuve problemas para ejecutar el código (con la fk), limpié ambas tablas y comencé de nuevo con:
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE pedidos;    -- Borra todos los pedidos acumulados
+TRUNCATE TABLE clientes;   -- Borra todos los clientes acumulados
+SET FOREIGN_KEY_CHECKS = 1; */
+
 -- Inserta al menos cinco nuevos clientes en la tabla «clientes»
 INSERT INTO clientes (nombre, direccion, telefono) VALUES
 ('María González', 'Condell 1145, Providencia', '+56 9 8765 4321'),
