@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+/*FORMATO COMÚN*/
+* {
+	padding: 0;
+	margin: 0;
+	font-family: 'Nunito', sans-serif;
+}
+
+body {
+    background-color: #000000;
+    color: #a0f521;
+	display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.contenedor {
+    width: 100%;
+    padding: 30px;
+    border: 2.5px solid #a0f521; 
+    border-radius: 24px;
+}
+
+.canciones {
+	max-width: 800px;
+}
+
+.detalle {
+	max-width: 500px;
+}
+
+/*TÍTULOS*/
+.contenedor h2 {
+    font-size: 34px;
+    font-weight: 800;
+    margin-bottom: 22px;
+}
+
+.canciones h2 {
+    text-align: center;
+}
+
+/*TABLA*/
+.tabla {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;       
+}
+
+/* Encabezado de tabla */
+th {
+	color: #000000;
+    background-color: #a0f521;      
+    font-weight: 700;
+    font-size: 18px;
+    padding: 5px 20px;
+    text-align: left;
+}
+
+.encabezado .inicio {
+    border-radius: 12px 0 0 12px;
+}
+
+.encabezado .final {
+    border-radius: 0 12px 12px 0;
+}
+
+/* Filas de canciones */
+.tabla tbody td {
+    padding: 10px 20px;
+    font-size: 22px;
+    font-weight: 600;
+    background-color: #000000;
+    border-top: 2.5px solid #a0f521;
+    border-bottom: 2.5px solid #a0f521; 
+    transition: transform 0.2s ease;
+}
+
+tbody tr:hover{
+    transform: translateY(-2px);
+}
+
+.fila .inicio {
+    border-left: 2.5px solid #a0f521;   
+    border-radius: 20px 0 0 20px;
+}
+
+.fila .final {
+    border-right: 2.5px solid #a0f521;  
+    border-radius: 0 20px 20px 0;
+}
+
+/*última columna (detalle)*/
+.final {
+	text-align: center;
+}
+
+/*BOTONES*/
+a{
+	display: inline-block;
+	text-decoration: none;
+	background-color: #a0f521; 
+	color: #000000;
+    font-size: 16px;
+    padding: 5px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    border: 2px solid transparent; 
+    transition: all 0.2s ease-in-out;
+}
+
+.botonDetalle:hover {
+    transition: all 0.15s ease-in-out;
+    box-shadow: 0 0 15px rgba(160, 245, 33, 0.4); 
+    background-color: #000000;
+    color: #a0f521;
+    border: 0.1px solid #a0f521;   
+}
+
+.botonVolver {
+	margin-top: 30px;
+}
+
+/*LISTA DETALLE de canciones*/
+ul {
+	list-style: none;
+    padding: 0 0 0 70px;
+}
+
+li {
+	font-size: 22px;
+    font-weight: 400;
+    padding: 5px 0;
+}
+
+li b {
+	font-weight: 800;
+}
