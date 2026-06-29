@@ -23,4 +23,9 @@ public class ServicioCanciones {
 	public Cancion obtenerCancionPorId(Long id) {
 		return this.repositorioCanciones.findById(id).orElse(null);
 	}
+	
+	//agregarCancion(Cancion): Agrega la canción a la base de datos dado el Objeto Cancion enviado como parámetro. Devuelve un objeto Cancion con la canción creada.
+	public Cancion agregarCancion(Cancion cancion) {
+		return this.repositorioCanciones.save(cancion);
+	}
 }

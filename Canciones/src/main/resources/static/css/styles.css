@@ -15,6 +15,7 @@ body {
     padding: 40px 20px;
 }
 
+/*CONTENEDORES*/
 .contenedor {
     width: 100%;
     padding: 30px;
@@ -26,7 +27,7 @@ body {
 	max-width: 800px;
 }
 
-.detalle {
+.detalle, .agregar {
 	max-width: 500px;
 }
 
@@ -97,16 +98,16 @@ tbody tr:hover{
 }
 
 /*BOTONES*/
-a{
+a, input {
 	display: inline-block;
 	text-decoration: none;
 	background-color: #a0f521; 
 	color: #000000;
     font-size: 16px;
     padding: 5px 15px;
-    border-radius: 12px;
     cursor: pointer;
     border: 2px solid transparent; 
+    border-radius: 12px; 
     transition: all 0.2s ease-in-out;
 }
 
@@ -115,11 +116,14 @@ a{
     box-shadow: 0 0 15px rgba(160, 245, 33, 0.4); 
     background-color: #000000;
     color: #a0f521;
-    border: 0.1px solid #a0f521;   
+    border: 0.1px solid #a0f521;  
 }
 
-.botonVolver {
-	margin-top: 30px;
+.botonVolver, .botonAgregar {
+    font-weight: 700;
+	background-color: #2c2c2c;
+    color: #a0f521;
+    font-size: 18px;
 }
 
 /*LISTA DETALLE de canciones*/
@@ -136,4 +140,35 @@ li {
 
 li b {
 	font-weight: 800;
+}
+
+/*AGREGAR canciones*/
+
+.atributo {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 30px;
+}
+
+.atributo label{
+	width: 100px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #a0f521;
+}
+
+.atributo input {
+	width: 90%;
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #a0f521;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 3px;
+}
+
+#mensajeError {
+    color: #ff3333;
+    font-size: 14px;
+    font-style: italic;
 }

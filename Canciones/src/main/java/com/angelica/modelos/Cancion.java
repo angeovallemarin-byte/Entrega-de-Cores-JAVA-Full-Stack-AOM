@@ -11,6 +11,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 //Asocia la clase a una @Entity y @Table, nombra la tabla “canciones”
 @Entity
@@ -23,14 +25,28 @@ public class Cancion{
 	private Long id;
 	
 	//Título: El nombre de la canción.
+    @NotBlank(message = "El título de la canción es requerido.")
+    @Size(min = 3, message = "Debe contener al menos 5 caracteres.")
 	private String titulo;
+    
 	//Artista: El nombre del artista o banda que interpreta la canción.
-	private String artista;
+    @NotBlank(message = "El artista de la canción es requerido.")
+    @Size(min = 3, message = "Debe contener al menos 3 caracteres.")
+    private String artista;
+    
 	//Álbum: El álbum en el que se encuentra la canción.
+    @NotBlank(message = "El álbum de la canción es requerido.")
+    @Size(min = 3, message = "Debe contener al menos 3 caracteres.")
 	private String album;
+    
 	//Género: El género musical de la canción (por ejemplo, rock, pop, jazz, etc.).
-	private String genero;
+    @NotBlank(message = "El género de la canción es requerido.")
+    @Size(min = 3, message = "Debe contener al menos 3 caracteres.")
+    private String genero;
+    
 	//Idioma: El idioma en el que está escrita la canción.
+    @NotBlank(message = "El idioma de la canción es requerido.")
+    @Size(min = 3, message = "Debe contener al menos 3 caracteres.")
 	private String idioma;
 	
 	//Fecha de creación: Fecha utilizada para cuando se crea el registro en la tabla de la base de datos.
