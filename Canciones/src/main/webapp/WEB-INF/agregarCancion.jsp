@@ -14,6 +14,7 @@
 		<h2>Agregar Canción</h2>
 		
 	    <form:form action="/canciones/procesa/agregar" method="POST" modelAttribute="cancion">
+	    	
 	    	<div class="atributo">
 		    	<form:label path="titulo">Título:</form:label>
 		    	<form:input path="titulo" type="text" />
@@ -22,7 +23,10 @@
 	    	
 	    	<div class="atributo">
 		    	<form:label path="artista">Artista:</form:label>
-		    	<form:input path="artista" type="text" />
+		    	<form:select path="artista">
+			        <form:option value="" label="-- Selecciona un Artista --"/>
+			        <form:options items="${artistas}" itemValue="id" itemLabel="nombreCompleto"/>
+			    </form:select>
 		    	<form:errors path="artista" id="mensajeError"/>
 	    	</div>
 	    	    	

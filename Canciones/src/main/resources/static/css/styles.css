@@ -27,7 +27,7 @@ body {
 	max-width: 900px;
 }
 
-.detalle, .agregar, .editar {
+.detalle, .agregar, .editar, .artistas {
 	max-width: 500px;
 }
 
@@ -98,7 +98,7 @@ tbody tr:hover{
 }
 
 /*BOTONES*/
-a, input {
+a, input{
 	display: inline-block;
 	text-decoration: none;
 	background-color: #a0f521; 
@@ -119,20 +119,20 @@ a, input {
     border: 0.1px solid #a0f521;  
 }
 
-.botonVolver, .botonAgregar, .botonEditar, .botonEliminar {
+.botonVolver, .botonAgregar, .botonEditar, .botonEliminar, .botonArtistas {
     font-weight: 700;
 	background-color: #2c2c2c;
     color: #a0f521;
     font-size: 18px;
 }
 
-/*LISTA DETALLE de canciones*/
+/*LISTA DETALLE*/
 ul {
 	list-style: none;
     padding: 0 0 0 70px;
 }
 
-li {
+li, h3 {
 	font-size: 22px;
     font-weight: 400;
     padding: 5px 0;
@@ -142,7 +142,7 @@ li b {
 	font-weight: 800;
 }
 
-/*AGREGAR canciones*/
+/*ATRIBUTOS COMUNES*/
 
 .atributo {
     display: flex;
@@ -157,7 +157,7 @@ li b {
     color: #a0f521;
 }
 
-.atributo input {
+.atributo input, .atributo select, .atributo textarea {
 	width: 90%;
     background-color: #000000;
     color: #ffffff;
@@ -171,4 +171,8 @@ li b {
     color: #ff3333;
     font-size: 14px;
     font-style: italic;
+}
+
+#detalleArtista {
+	padding: 0;
 }

@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.angelica.modelos.Artista;
 import com.angelica.modelos.Cancion;
+import com.angelica.servicios.ServicioArtistas;
 import com.angelica.servicios.ServicioCanciones;
 
 import jakarta.servlet.http.HttpSession;
@@ -23,6 +26,9 @@ import jakarta.validation.Valid;
 public class ControladorCanciones {
 	@Autowired //Inyecta al controlador el servicio.
 	private ServicioCanciones servicioCanciones;
+	
+	@Autowired
+	private ServicioArtistas servicioArtistas;
 	
 	//desplegarCanciones(): Ruta a utilizar “/canciones”. Devuelve una lista de objetos Cancion para ser enviadas a la vista JSP canciones.jsp.
 	@GetMapping("/canciones")
@@ -41,17 +47,21 @@ public class ControladorCanciones {
 	
 	//formularioAgregarCancion(): Ruta a utilizar “/canciones/formulario/agregar/{idCancion}”. Desplegar la vista JSP agregarCancion.jsp. Este formulario cuenta con todos los campos/atributos de una canción.
 	@GetMapping("/canciones/formulario/agregar")
-	public String formularioAgregarCancion(HttpSession sesion, Model modelo) {
-		modelo.addAttribute("cancion", new Cancion());
+	public String formularioAgregarCancion(HttpSession sesion, Model modelo, @ModelAttribute("cancion") Cancion cancion) {
+		modelo.addAttribute("artistas", this.servicioArtistas.obtenerTodosLosArtistas());
 		return "agregarCancion.jsp";
 	}
 	
 	//procesarAgregarCancion(): Ruta a utilizar “/canciones/procesa/agregar”. Agrega la canción a la base de datos. Redirige a la ruta de “/canciones”. En caso de que el formulario no pase alguna validación hay que redirigir al mismo formulario agregarCancion.jsp para mostrar los errores.
 	@PostMapping("/canciones/procesa/agregar")
-	public String procesarAgregarCancion(@Valid @ModelAttribute("cancion") Cancion cancion, BindingResult validaciones) {
+	public String procesarAgregarCancion(@Valid @ModelAttribute("cancion") Cancion cancion, BindingResult validaciones, @RequestParam("artista") Long id, Model modelo) {
+		
 		if(validaciones.hasErrors()) {
+			modelo.addAttribute("artistas", this.servicioArtistas.obtenerTodosLosArtistas());
 			return "agregarCancion.jsp";
 		}
+		Artista artistaSeleccionado = this.servicioArtistas.obtenerArtistaPorId(id);
+	    cancion.setArtista(artistaSeleccionado);
 		this.servicioCanciones.agregarCancion(cancion);
 		return "redirect:/canciones";
 	}

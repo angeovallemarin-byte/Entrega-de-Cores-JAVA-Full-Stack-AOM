@@ -20,7 +20,7 @@
 			<li>Álbum: <b>${cancion.album}</b></li>
 			<li>Género: <b>${cancion.genero}</b></li>
 			<li>Idioma: <b>${cancion.idioma}</b></li>
-			<li>Fecha de Creación: <b>${cancion.fechaCreacion}</b></li>
+			<li>Fecha de Registro: <b>${cancion.fechaCreacion}</b></li>
 			<li>Última Actualización: <b>${cancion.fechaActualizacion}</b></li>
 		</ul>
 		<br>

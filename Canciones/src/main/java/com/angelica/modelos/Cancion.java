@@ -10,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -30,10 +32,11 @@ public class Cancion{
 	private String titulo;
     
 	//Artista: El nombre del artista o banda que interpreta la canción.
-    @NotBlank(message = "El artista de la canción es requerido.")
-    @Size(min = 3, message = "Debe contener al menos 3 caracteres.")
-    private String artista;
-    
+    //El atributo de artista ya no será un String, ahora será un objeto de tipo Artista.
+    @ManyToOne
+	@JoinColumn(name = "id_artista")
+	private Artista artista;
+
 	//Álbum: El álbum en el que se encuentra la canción.
     @NotBlank(message = "El álbum de la canción es requerido.")
     @Size(min = 3, message = "Debe contener al menos 3 caracteres.")
@@ -81,11 +84,12 @@ public class Cancion{
 		this.titulo = titulo;
 	}
 
-	public String getArtista() {
+	//Modificar el getter y setter para que coincidan con el cambio de String a Objeto.
+	public Artista getArtista() {
 		return artista;
 	}
 
-	public void setArtista(String artista) {
+	public void setArtista(Artista artista) {
 		this.artista = artista;
 	}
 
