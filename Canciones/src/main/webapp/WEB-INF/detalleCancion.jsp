@@ -22,6 +22,8 @@
 			<li>Última Actualización: <b>${cancion.fechaActualizacion}</b></li>
 		</ul>
 		<br>
+		<a class="botonEditar" href="/canciones/formulario/editar/${cancion.id}">Editar Canción</a>
+		<br><br>
 		<a class="botonVolver" href="/canciones">Volver a lista de canciones</a>
 	</div>
 </body>

@@ -28,4 +28,11 @@ public class ServicioCanciones {
 	public Cancion agregarCancion(Cancion cancion) {
 		return this.repositorioCanciones.save(cancion);
 	}
+	
+	//actualizaCancion(Cancion): Actualiza la canción de la base de datos dado el Objeto Cancion enviado como parámetro. Devuelve un objeto Cancion con la canción actualizada.
+	public Cancion actualizarCancion(Cancion cancion) {
+		return this.repositorioCanciones.save(cancion);
+	}
+	
+	
 }
