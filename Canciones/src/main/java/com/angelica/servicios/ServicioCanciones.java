@@ -34,5 +34,9 @@ public class ServicioCanciones {
 		return this.repositorioCanciones.save(cancion);
 	}
 	
+	//eliminaCancion(Long): Elimina la canción de la base de datos dado el id enviado como parámetro. No tiene valor de retorno.
+	public void eliminarCancion(Long id) {
+		this.repositorioCanciones.deleteById(id);
+	}
 	
 }

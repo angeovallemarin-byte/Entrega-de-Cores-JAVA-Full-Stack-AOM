@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, java.text.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,8 +24,13 @@
 			<li>Última Actualización: <b>${cancion.fechaActualizacion}</b></li>
 		</ul>
 		<br>
-		<a class="botonEditar" href="/canciones/formulario/editar/${cancion.id}">Editar Canción</a>
+		<a class="botonEditar" href="/canciones/formulario/editar/${idCancion}">Editar Canción</a>
 		<br><br>
+		<form:form action="/canciones/eliminar/${idCancion}" method="POST" modelAttribute="cancion">
+			<input type="hidden" name="_method" value="DELETE" />
+			<input class="botonEliminar" type="submit" value="Eliminar Canción" />
+		</form:form>
+		<br>
 		<a class="botonVolver" href="/canciones">Volver a lista de canciones</a>
 	</div>
 </body>
